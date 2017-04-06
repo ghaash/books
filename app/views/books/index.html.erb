@@ -11,7 +11,17 @@
 
   <tbody>
     <% @books.each do |book| %>
-
+    <td><%= book.name %></td>
+    <td><%= book.genre %></td>
+    <td><%= book.description %></td>
+    <td><%= book.page_length %></td>
+    <% book.author.each do |a| %>
+    <td><%= a.first_name %></td>
+    <td><%= a.first_name %></td>
+    <% end %>
+    <% book.rating.each do |r| %>
+    <td><%= r.ratings %></td>
+    <% end %>
       <tr>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
