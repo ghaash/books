@@ -1,0 +1,13 @@
+To Do:
+
+run rake db:migrate
+run rails s
+trouble shoot problems
+get app functioning
+
+add dotenv
+add devise
+add has many ratings :through users with devise for books model
+add omniauth
+
+add class model
