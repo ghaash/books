@@ -11,6 +11,27 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :page_length %>
+    <%= f.text_field :page_length %>
+    <%= f.fields_for :author do |t| %>
+    <%= t.label :first_name %>
+    <%= t.text_field :first_name %>
+    <%= t.label :last_name %>
+    <%= t.text_field :last_name %>
+    <%= f.fields_for :ratings do |r| %>
+    <%= r.label :rating %>
+    <%= r.text_field :rating %>
+    <% end %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
