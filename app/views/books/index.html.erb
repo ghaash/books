@@ -11,15 +11,15 @@
 
   <tbody>
     <% @books.each do |book| %>
-    <td><%= book.name %></td>
-    <td><%= book.genre %></td>
-    <td><%= book.description %></td>
-    <td><%= book.page_length %></td>
-    <% book.author.each do |a| %>
+    <td>title: <%= book.name %></td>
+    <td>genre: <%= book.genre %></td>
+    <td>description: <%= book.description %></td>
+    <td>pages: <%= book.page_length %></td>
+    <% Author.all.each do |a| %>
     <td><%= a.first_name %></td>
     <td><%= a.first_name %></td>
     <% end %>
-    <% book.rating.each do |r| %>
+    <% Rating.all.each do |r| %>
     <td><%= r.ratings %></td>
     <% end %>
       <tr>

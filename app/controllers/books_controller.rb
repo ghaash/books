@@ -5,6 +5,8 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    # @books.authors.build(author_type: 'author name')
+    # @books.ratings.build(rating_type: 'rating')
   end
 
   # GET /books/1
@@ -69,6 +71,8 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :genre, :description, :page_length, authors_attributes: [:first_name, :last_name], ratings_attributes: [:ratings])
+      params.require(:book).permit(:name, :genre, :description, :page_length,
+      authors_attributes: [:first_name, :last_name],
+      ratings_attributes: [:ratings])
     end
 end
