@@ -7,6 +7,10 @@ has_many :ratings
     end
   end
 
+  def self.by_rating(rating_id)
+  where(rating: rating_id)
+end
+
   def self.from_today
   where("created_at >=?", Time.zone.today.beginning_of_day)
 end
