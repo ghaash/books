@@ -5,9 +5,9 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @ratings = Rating.all
     if !params[:rating].blank?
-   @books = Book.by_author(params[:rating])
+   @books = Book.by_rating(params[:rating])
  elsif !params[:date].blank?
    if params[:date] == "Today"
      @books = Book.from_today
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
    @books = Book.all
  end
 end
-  
+
 
   # GET /books/1
   # GET /books/1.json
