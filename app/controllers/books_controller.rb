@@ -19,7 +19,7 @@ class BooksController < ApplicationController
    @books = Book.all
  end
 end
-  end
+  
 
   # GET /books/1
   # GET /books/1.json
