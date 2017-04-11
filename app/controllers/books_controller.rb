@@ -85,6 +85,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :author, :genre, :description, :page_length, ratings_attributes: [:stars])
+      params.require(:book).permit(:title, :author, :genre, :description, :page_length, ratings_attributes: [:stars])
     end
 end
