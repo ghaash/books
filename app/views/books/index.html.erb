@@ -15,12 +15,9 @@
     <td>genre: <%= book.genre %></td>
     <td>description: <%= book.description %></td>
     <td>pages: <%= book.page_length %></td>
-    <% Author.all.each do |a| %>
-    <td><%= a.first_name %></td>
-    <td><%= a.first_name %></td>
-    <% end %>
-    <% Rating.all.each do |r| %>
-    <td><%= r.ratings %></td>
+
+    <% book.ratings.each do |r| %>
+    <td>rating: <%= r.rating %></td>
     <% end %>
       <tr>
         <td><%= link_to 'Show', book %></td>

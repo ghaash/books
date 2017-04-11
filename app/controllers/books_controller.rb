@@ -17,11 +17,13 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.ratings.build
   end
 
   # GET /books/1/edit
   def edit
   end
+
 
   # POST /books
   # POST /books.json
@@ -71,8 +73,8 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :genre, :description, :page_length,
-      authors_attributes: [:first_name, :last_name],
-      ratings_attributes: [:ratings])
+      params.require(:book).permit(:name, :genre, :description, :page_length, :rating,
+      authors_attributes: [:name],
+      ratings_attributes: [:stars])
     end
 end

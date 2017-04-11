@@ -11,6 +11,7 @@
 
   <tbody>
     <% @ratings.each do |rating| %>
+    <td>rating: <%= rating.rating %></td>
       <tr>
         <td><%= link_to 'Show', rating %></td>
         <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
