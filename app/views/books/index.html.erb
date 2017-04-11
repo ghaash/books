@@ -10,14 +10,15 @@
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>   
-    <td>title: <%= book.name %></td>
-    <td>genre: <%= book.genre %></td>
+    <% @books.each do |book| %>
+    <td>title: <%= book.title %></td>
+    <td>genre: <%= book.author %></td>
+    <td>description: <%= book.genre %></td>
     <td>description: <%= book.description %></td>
     <td>pages: <%= book.page_length %></td>
 
     <% book.ratings.each do |r| %>
-    <td>rating: <%= r.rating %></td>
+    <td>rating: <%= r.stars %></td>
     <% end %>
       <tr>
         <td><%= link_to 'Show', book %></td>

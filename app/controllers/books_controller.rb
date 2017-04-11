@@ -6,8 +6,19 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
-    # @books.authors.build(author_type: 'author name')
-    # @books.ratings.build(rating_type: 'rating')
+    if !params[:rating].blank?
+   @books = Book.by_author(params[:rating])
+ elsif !params[:date].blank?
+   if params[:date] == "Today"
+     @books = Book.from_today
+   else
+     @books = Book.old_news
+   end
+ else
+   # if no filters are applied, show all posts
+   @books = Book.all
+ end
+end
   end
 
   # GET /books/1
@@ -74,8 +85,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :genre, :description, :page_length, :rating,
-      authors_attributes: [:name],
-      ratings_attributes: [:stars])
+      params.require(:book).permit(:name, :author, :genre, :description, :page_length, ratings_attributes: [:stars])
     end
 end

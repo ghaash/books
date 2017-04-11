@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-belongs_to :author
 has_many :ratings
 
   def ratings_attributes=(ratings_attributes)
