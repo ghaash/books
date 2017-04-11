@@ -77,6 +77,10 @@ end
     end
   end
 
+  def top_five
+    @top_books = Book.top_five
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book

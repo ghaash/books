@@ -11,3 +11,12 @@ add has many ratings :through users with devise for books model
 add omniauth
 
 add class model
+
+
+ask cernan
+why is title not showing up? its not inserting either. ANSWER: didn't have it it in params. is there way to tell me that? validate in model to get params errors
+class model filter? what is a good one?
+
+The plan
+do bootstrap
+class method to return highest and lowest ranked things
