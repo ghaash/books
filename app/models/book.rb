@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
-  validates :title, presence: true, uniqueness: { scope: [:name], message: "Cannot have the same title" }
-  validates :author, presence: true, {scope: [:author], message: "Must have an author" }
-  validates :genre, presence: true, {scope: [:genre], message: "Must have an genre" }
-  validates :description, presence: true, {scope: [:description], message: "Must have an description" }
-  validates :page_length, presence: true, { scope: [:page_length], message: "Please put in an integer" }
+  validates :title, presence: true, uniqueness: { scope: [:title], message: "Cannot have the same title" }
+  validates :author, presence: true
+  validates :genre, presence: true
+  validates :description, presence: true
+  validates :page_length, presence: true
 
   has_many :ratings
 
@@ -25,6 +25,5 @@ def self.old_news
   where("created_at <?", Time.zone.today.beginning_of_day)
 end
 
-def self.top_five
 
 end
