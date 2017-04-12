@@ -8,11 +8,11 @@ class BooksController < ApplicationController
     @ratings = Rating.all
     if !params[:rating].blank?
    @books = Book.by_rating(params[:rating])
- elsif !params[:date].blank?
-   if params[:date] == "Today"
-     @books = Book.from_today
+ elsif !params[:rating].blank?
+   if params[:rating] == "Highest"
+     @books = Book.highest
    else
-     @books = Book.old_news
+     @books = Book.lowest
    end
  else
    # if no filters are applied, show all posts

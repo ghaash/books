@@ -14,16 +14,15 @@ class Book < ApplicationRecord
   end
 
   def self.by_rating(rating_id)
-  where(rating: rating_id)
-end
+    where(rating: rating_id)
+  end
 
-  def self.from_today
-  where("created_at >=?", Time.zone.today.beginning_of_day)
-end
+  def self.highest
+    where("created_at >=?", Rating.max)
+  end
 
-def self.old_news
-  where("created_at <?", Time.zone.today.beginning_of_day)
-end
-
+  def self.lowest
+    where("created_at <?", Rating.min)
+  end
 
 end
