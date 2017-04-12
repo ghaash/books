@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
+<div>
+  <h3>Filter books:</h3>
+    <%= form_tag("/books", method: "get") do %>
+    <%= select_tag "stars", options_for_select(["Highest", "Lowest"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
 
 <table>
   <thead>
@@ -18,7 +25,7 @@
     <td>pages: <%= book.page_length %></td>
 
     <% book.ratings.each do |r| %>
-    <td>rating: <%= r.stars %></td>
+    <td>stars: <%= r.stars %></td>
     <% end %>
       <tr>
         <td><%= link_to 'Show', book %></td>
