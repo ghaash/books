@@ -18,11 +18,11 @@ class Book < ApplicationRecord
   end
 
   def self.highest
-    where("created_at >=?", Rating.max)
+    where('stars >= ?', max)
   end
 
   def self.lowest
-    where("created_at <?", Rating.min)
+    where("price <= ?", min)
   end
 
 end
