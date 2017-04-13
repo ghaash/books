@@ -6,21 +6,22 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
   # raise params.inspect
-    @ratings = Rating.all
-    if !params[:rating].blank?
-   @books = Book.by_rating(params[:rating])
- elsif !params[:date].blank?
-    if params[:date] == "Today"
+  #   @ratings = Rating.all
+  #   if !params[:rating].blank?
+  #  @books = Book.by_rating(params[:rating1], params[:rating2])
+ if !params[:date].blank?
+  params[:date] == "Today"
       # raise 'inside today params if block'.inspect
       @books = Book.from_today
+
     else
       @books = Book.old_news
-    end
+end
  else
    # if no filters are applied, show all posts
    @books = Book.all
  end
-end
+
 
 
   # GET /books/1
