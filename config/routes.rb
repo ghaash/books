@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :ratings
   resources :books
 
-  resources :books, only: [:show, :index, :new, :create, :edit] do
+  resources :books, only: [:show, :index, :new, :create, :edit, :delete] do
   resources :ratings, only: [:show, :index, :new]
   end
 

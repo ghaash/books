@@ -6,3 +6,5 @@
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
+
+<%= select_tag "stars", options_for_select(["Highest", "Lowest"]), include_blank: true %>

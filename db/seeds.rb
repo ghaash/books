@@ -6,46 +6,51 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-books = [{
+seeds = [
   {
   :title => "Leviathan Wakes",
   :author => "James Corey",
   :genre => "Science Fiction",
   :description => "A Game Of Thrones in Space",
-  :page_length => "600",
-  :ratings_attributes =>
-  [{:stars=>"11"}]
+  :page_length => "582",
+  :ratings_attributes => [:stars => 4.2]
   },
 
-  {:title => "Death Troopers",
+  {
+  :title => "Death Troopers",
   :author => "Joe Schreiber",
   :genre => "Star Wars",
-  :description => "Star Wars with zombies!",
-  :page_length => "272",
-  :ratings_attributes =>[{:stars=>"11"}]}
+  :description => "Star Wars with zombies",
+  :page_length => "288",
+  :ratings_attributes => [:stars => 3.6]
+  },
+  {
+  :title => "Mistborn: The Final Empire",
+  :author => "Brandon Sanderson",
+  :genre => "Fantasy",
+  :description => "Magic via metal",
+  :page_length => "600",
+  :ratings_attributes => [:stars => 4.4]
+  },
+  {
+  :title => "Sandstorm",
+  :author => "James Rollins",
+  :genre => "Speculative Fiction",
+  :description => "Soldier spies with PHd's",
+  :page_length => "608",
+  :ratings_attributes => [:stars => 3.9]
+  },
+  {
+  :title => "The Name of the Wind",
+  :author => "Patrick Rothfuss",
+  :genre => "Fantasy",
+  :description => "A Game Of Thrones in Space",
+  :page_length => "662",
+  :ratings_attributes => [:stars => 4.6]
+  }
 
-  # title:"Mistborn Series",
-  # author: "Brandon Sanderson",
-  # genre: "Fantasy",
-  # description: "Magic with metals",
-  # page_length: "1200",
-  # :ratings_attributes =>{"2"=>{:stars=>"10"}},
-  #
-  # title:"Sigma Force Series",
-  # author: "James Rollins",
-  # genre: "Spy Tech Thriller",
-  # description: "Soldiers with PHds",
-  # page_length: "500",
-  # :ratings_attributes =>{"3"=>{:stars=>"8"}},
-  #
-  # title:"The Kingkiller Chronicles",
-  # author: "Patrick Rothfuss",
-  # genre: "Fantasy",
-  # description: "The most compelling fantasy you have ever read",
-  # page_length: "900",
-  # :ratings_attributes =>{"4"=>{:stars=>"11"}}
-}]
+]
 
-books.each do |book|
+seeds.each do |book|
   Book.create(book)
 end
