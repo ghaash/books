@@ -14,7 +14,15 @@ class Book < ApplicationRecord
   end
 
   def self.by_rating(rating_id)
-    where(rating: rating_id)
+    #binding.pry
+    self.all.select do |book|
+      #binding.pry
+      book.ratings.select do |rating|
+        #binding.pry
+        rating.stars == rating_id.to_i
+      end
+    end
+    #where(rating: rating_id)
   end
 
   def self.from_today
