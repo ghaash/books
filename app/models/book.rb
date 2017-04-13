@@ -17,12 +17,12 @@ class Book < ApplicationRecord
     where(rating: rating_id)
   end
 
-  def self.highest
-    where('stars >= ?', max)
-  end
+  def self.from_today
+  where("created_at >=?", Time.zone.today.beginning_of_day)
+end
 
-  def self.lowest
-    where("price <= ?", min)
-  end
+def self.old_news
+  where("created_at <?", Time.zone.today.beginning_of_day)
+end
 
 end

@@ -6,14 +6,14 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @ratings = Rating.all
-    if !params[:author].blank?
-   @books = Book.by_rating(params[:author])
+    if !params[:rating].blank?
+   @books = Book.by_rating(params[:rating])
  elsif !params[:date].blank?
-   if params[:date] == "Highest"
-     @books = Book.highest
-   else
-     @books = Book.lowest
-   end
+    if params[:date] == "Today"
+      @books = Book.from_today
+    else
+      @books = Book.old_news
+    end
  else
    # if no filters are applied, show all posts
    @books = Book.all
