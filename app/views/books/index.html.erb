@@ -4,10 +4,7 @@
 <div>
   <h3>Filter books:</h3>
     <%= form_tag("/books", method: "get") do %>
-    <!-- <%= select_tag "rating", options_from_collection_for_select(@ratings, "id", "stars"), include_blank: true %> -->
-    <!-- <%= select_tag "date", options_for_select(["Today", "Old News"]), include_blank: true %> -->
     <%= select_tag "sort", options_for_select(["Title", "Author"]), include_blank: true %>
-
     <%= submit_tag "Filter" %>
   <% end %>
 </div>
