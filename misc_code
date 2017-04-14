@@ -32,3 +32,5 @@ def self.by_rating(rating1, rating2)
 
   where('average_rating > rating1 && average < rating_2')
 end
+
+<td><%= link_to 'Show', book %></td>

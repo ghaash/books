@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :ratings
-  resources :books
+  # resources :ratings
+  # resources :books
 
-  resources :books, only: [:show, :index, :new, :create, :edit, :delete] do
-  resources :ratings, only: [:show, :index, :new]
+  resources :books, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
+  resources :ratings, only: [:show, :index, :new, :delete]
   end
 
-
   root to: "books#index"
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

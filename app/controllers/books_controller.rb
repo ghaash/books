@@ -3,17 +3,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @ratings = Rating.all
-    if !params[:rating].blank?
-   @books = Book.by_rating(params[:rating1], params[:rating2])
- elsif !params[:date].blank?
-    if params[:date] == "Today"
-      # raise 'inside today params if block'.inspect
-      @books = Book.today
-    else
-      @books = Book.yesterday
-    end
-  elsif !params[:sort].blank?
+  if !params[:sort].blank?
     if params[:sort] == "Title"
       @books = Book.title_sort
     else
