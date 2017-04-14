@@ -8,3 +8,27 @@
 </div>
 
 <%= select_tag "stars", options_for_select(["Highest", "Lowest"]), include_blank: true %>
+
+def index
+# raise params.inspect
+#   @ratings = Rating.all
+#   if !params[:rating].blank?
+#  @books = Book.by_rating(params[:rating1], params[:rating2])
+if !params[:date].blank?
+params[:date] == "Today"
+    # raise 'inside today params if block'.inspect
+    @books = Book.from_today
+
+  else
+    @books = Book.old_news
+end
+else
+ # if no filters are applied, show all posts
+ @books = Book.all
+end
+
+def self.by_rating(rating1, rating2)
+  #binding.pry
+
+  where('average_rating > rating1 && average < rating_2')
+end

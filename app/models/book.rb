@@ -13,24 +13,12 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.by_rating(rating_id)
-    #binding.pry
-    self.all.select do |book|
-      #binding.pry
-      book.ratings.select do |rating|
-        #binding.pry
-        rating.stars == rating_id.to_i
-      end
-    end
-    #where(rating: rating_id)
+  def self.author_sort
+    Book.order(author: :asc)
   end
 
-  def self.from_today
-  where("created_at >=?", Time.zone.today.beginning_of_day)
-end
-
-def self.old_news
-  where("created_at <?", Time.zone.today.beginning_of_day)
-end
+  def self.title_sort
+    Book.order(title: :asc)
+  end
 
 end
