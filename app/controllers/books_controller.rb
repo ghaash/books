@@ -6,18 +6,18 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
   # raise params.inspect
-    @ratings = Rating.all
-    if !params[:rating].blank?
-   @books = Book.by_rating(params[:rating1], params[:rating2])
- elsif !params[:date].blank?
-    if params[:date] == "Today"
-      # raise 'inside today params if block'.inspect
-      @books = Book.today
-    else
-      @books = Book.yesterday
-    end
-  elsif !params[:sort].blank?
-    if params[:sort] == "Title"
+ #    @ratings = Rating.all
+ #    if !params[:rating].blank?
+ #   @books = Book.by_rating(params[:rating1], params[:rating2])
+ # elsif !params[:date].blank?
+ #    if params[:date] == "Today"
+ #      # raise 'inside today params if block'.inspect
+ #      @books = Book.today
+ #    else
+ #      @books = Book.yesterday
+ #    end
+  if !params[:sort].blank?
+  elsif params[:sort] == "Title"
       @books = Book.title_sort
     else
       @books = Book.author_sort
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
    # if no filters are applied, show all posts
    @books = Book.all
  end
-end
+
 
 
   # GET /books/1
