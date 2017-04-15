@@ -23,6 +23,7 @@ Finally start the server and navigate to localhost:3000 in your browser.
 rails s
 
 Contributing
+
 Bug reports and pull requests are welcome on GitHub at https://github.com/ghaash/books. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 License
