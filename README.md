@@ -1,24 +1,22 @@
-# README
+Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Books is an application that was made for my rails project assessment at the Flatiron School. It is an app that list books' titles, authors, page lengths, descriptions and genre. Users who sign up with the app can add ratings to books as well.
 
-Things you may want to cover:
+#Development
 
-* Ruby version
+First clone the repository
+Then in the command line run:
+  bundle update
+Followed by:
+  rake db:migrate
+Some seed data is also included to test the app:
+  rake db:seed
+Finally start the server and navigate to localhost:3000 in your browser.
+  rails s
+Contributing
 
-* System dependencies
+Bug reports and pull requests are welcome on GitHub at https://github.com/ghaash/books. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Configuration
+License
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This software is available as open source under the terms of the MIT License.
