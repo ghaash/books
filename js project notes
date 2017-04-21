@@ -1,0 +1,9 @@
+for jquery
+render book view index in ajax/jquery
+render show in jquery, clickable title to next book
+new book renders form on same page
+
+so in terms of steps
+1. get the rails backend to render json when the index route is hit
+2. on the frontend...make a call to that backend endpoint using jquery's ajax method
+3. take the data that is received from the backend and render it to the page using jquery
