@@ -21,3 +21,9 @@ The plan
 add validations
 do bootstrap
 class method to return highest and lowest ranked things
+
+
+for jquery
+render book view index in ajax/jquery
+render show in jquery, clickable title to next book
+new book renders form on same page
