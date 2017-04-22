@@ -34,3 +34,9 @@ def self.by_rating(rating1, rating2)
 end
 
 <td><%= link_to 'Show', book %></td>
+
+rating index html erb
+<td><%= link_to 'Show', rating %></td>
+<td><%= link_to 'Edit', edit_rating_path(rating) %></td>
+<td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<%= link_to 'New Rating', new_rating_path %>
