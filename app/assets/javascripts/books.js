@@ -3,6 +3,3 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 // This is shorthand for $( document ).ready(function() { })
-$(function(){
-
-});
