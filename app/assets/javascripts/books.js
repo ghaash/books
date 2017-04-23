@@ -6,12 +6,12 @@
 
 $(function(){
   $("a.show_rating").on("click", function(e){
-    
+
     $.ajax({
       method: "GET",
       url: this.href
-    }).done(function(data){
-      console.log(data)
+    }).done(function(response){
+$("div.ratings").html(response)
     });
 
     e.preventDefault();
