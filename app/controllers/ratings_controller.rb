@@ -3,6 +3,7 @@ class RatingsController < ApplicationController
 
   def index
     @ratings = Rating.all
+    render 'ratings/index', :layout => false
   end
 
   def show
