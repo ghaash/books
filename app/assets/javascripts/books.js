@@ -4,11 +4,12 @@
 
 // This is shorthand for $( document ).ready(function() { })
 
-$(document).ready(function(){
+$(function(){
   $("a.show_rating").on("click", function(e){
+    debugger
     $.ajax({
-      method: "GET"
-      url: ,
+      method: "GET",
+      url: this.href
     }).done(function(data){
       console.log(data)
     });
