@@ -15,7 +15,7 @@
 <br><strong>Page Length</strong></br>
 <br><%= @book.page_length %></br>
 
-<p><%= link_to "show rating", book_ratings_path(@book) %>
+<p><%= link_to "show rating", book_ratings_path(@book), :class => "show_rating" %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

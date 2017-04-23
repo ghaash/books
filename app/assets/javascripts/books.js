@@ -3,3 +3,16 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 // This is shorthand for $( document ).ready(function() { })
+
+$(document).ready(function(){
+  $("a.show_rating").on("click", function(e){
+    $.ajax({
+      method: "GET"
+      url: ,
+    }).done(function(data){
+      console.log(data)
+    });
+
+    e.preventDefault();
+  })
+})
