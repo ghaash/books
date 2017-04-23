@@ -6,7 +6,7 @@
 
 $(function(){
   $("a.show_rating").on("click", function(e){
-    debugger
+    
     $.ajax({
       method: "GET",
       url: this.href
