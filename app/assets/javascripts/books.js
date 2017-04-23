@@ -6,6 +6,12 @@
 
 $(function(){
   $("a.show_rating").on("click", function(e){
+    $.ajax({
+      method: "GET",
+      url: this.href
+    }).success(function(json){
+
+    // }
 // low level ajax html
 //     $.ajax({
 //       method: "GET",
@@ -20,7 +26,7 @@ $(function(){
 //   $("div.ratings").html(response)
 // })
 
-$.get(this.href).success(function(json){
+// $.get(this.href).success(function(json){
   var $ol = $("div.ratings ol")
   $ol.html("")
 
