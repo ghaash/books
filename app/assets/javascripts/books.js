@@ -6,14 +6,21 @@
 
 $(function(){
   $("a.show_rating").on("click", function(e){
+// low level ajax html
+//     $.ajax({
+//       method: "GET",
+//       url: this.href
+//     }).success(function(response){
+// $("div.ratings").html(response)
+//     }).error(function(notNeeded){
+//       alert("we broke!!!!")
+//     });
+// jquery get
+// $.get(this.href).success(function(response){
+//   $("div.ratings").html(response)
+// })
 
-    $.ajax({
-      method: "GET",
-      url: this.href
-    }).done(function(response){
-$("div.ratings").html(response)
-    });
-
+$.get(this.href).success(function(json){debugger})
     e.preventDefault();
   })
 })
