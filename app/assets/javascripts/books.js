@@ -20,7 +20,14 @@ $(function(){
 //   $("div.ratings").html(response)
 // })
 
-$.get(this.href).success(function(json){debugger})
+$.get(this.href).success(function(json){
+  var $ol = $("div.ratings ol")
+  $ol.html("")
+
+  json.forEach(function(ratings){
+    $ol.append("<li>" + ratings.stars + "</li>");
+    })
+})
     e.preventDefault();
-  })
+})
 })
