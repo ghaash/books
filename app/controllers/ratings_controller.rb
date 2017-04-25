@@ -2,9 +2,8 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @ratings = Rating.all
-    @ratings = @book.ratings
-    render :json => @ratings
+    @ratings = Rating.all
+    render :json => @rating
   end
 
   def show
@@ -18,8 +17,7 @@ class RatingsController < ApplicationController
   end
 
   def create
-    # @rating = Rating.new(rating_params)
-    @rating = @book.ratings.build(rating_params)
+    @rating = Rating.new(rating_params)
 
     respond_to do |format|
       if @rating.save
@@ -61,6 +59,6 @@ class RatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:rating)
+      params.require(:rating).permit(:stars)
     end
 end
