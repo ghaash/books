@@ -39,6 +39,15 @@ $(function(){
 
 $(function(){
   $("#rating_stars").on("submit", function(e){
-    alert("You clicked submit")
+    $.ajax({
+      type: ($("input[name='_method']").val() || this.method),
+      url: this.action,
+      data: data,
+      sucess: function(response){
+        var $ol = $("div.ratings ol")
+        $ol.append(response);
+      })
+    });
+      e.preventDefault();
   })
 });
