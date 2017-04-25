@@ -21,7 +21,7 @@ end
 
   def new
     @book = Book.new
-    # @book.ratings.build
+    @book.ratings.build
   end
 
   def edit

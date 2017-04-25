@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
-    @rating = @book.ratings.build(rating_params)
+    # @rating = @book.ratings.build(rating_params)
 
     respond_to do |format|
       if @rating.save

@@ -22,5 +22,14 @@
   </ol>
 </div>
 
+<br><strong>ratings</srong></br>
+<%= render 'ratings/ratings' %>
+
+<%= form_for([@book, @rating]) do |f|  %>
+  <%= f.text_area :stars %>
+
+  <p><%= f.submit %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

@@ -38,7 +38,7 @@ $(function(){
 });
 
 $(function(){
-  $("#new_rating").on("submit", function(e){
+  $("#rating_stars").on("submit", function(e){
     alert("You clicked submit")
   })
 });
