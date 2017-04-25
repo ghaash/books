@@ -5,7 +5,7 @@
 // This is shorthand for $( document ).ready(function() { })
 
 $(function(){
-  $("a.show_rating").on("click", function(e){
+  $("a.display_rating").on("click", function(e){
     $.ajax({
       method: "GET",
       url: this.href
@@ -29,11 +29,16 @@ $(function(){
 // $.get(this.href).success(function(json){
   var $ol = $("div.ratings ol")
   $ol.html("")
-
   json.forEach(function(ratings){
     $ol.append("<li>" + ratings.stars + "</li>");
     })
 })
     e.preventDefault();
 })
-})
+});
+
+$(function(){
+  $("#new_rating").on("submit", function(e){
+    alert("You clicked submit")
+  })
+});

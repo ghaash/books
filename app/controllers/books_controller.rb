@@ -15,11 +15,13 @@ class BooksController < ApplicationController
 end
 
   def show
+    @ratings = @book.ratings
+@rating = @book.ratings.build
   end
 
   def new
     @book = Book.new
-    @book.ratings.build
+    # @book.ratings.build
   end
 
   def edit

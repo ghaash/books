@@ -3,7 +3,8 @@ class RatingsController < ApplicationController
 
   def index
     @ratings = Rating.all
-    render :json => @rating
+    # @ratings = @book.ratings
+    render :json => @ratings
   end
 
   def show
@@ -18,6 +19,7 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
+    @rating = @book.ratings.build(rating_params)
 
     respond_to do |format|
       if @rating.save
