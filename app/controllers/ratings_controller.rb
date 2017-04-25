@@ -2,7 +2,8 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ratings = Rating.all
+    # @ratings = Rating.all
+    @ratings = @book.ratings
     render :json => @ratings
   end
 
@@ -17,7 +18,8 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new(rating_params)
+    # @rating = Rating.new(rating_params)
+    @rating = @book.ratings.build(rating_params)
 
     respond_to do |format|
       if @rating.save

@@ -22,6 +22,12 @@
   </ol>
 </div>
 
+
+<%= form_for(@rating, :url => book_ratings_path(@book)) do |f| %>
+<%= f.text_area :stars %>
+<p><%= f.submit %></p>
+<% end %>
+
 <form>
   <textarea></textarea>
   <input type ="submit">
