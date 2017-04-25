@@ -21,9 +21,10 @@
   <ol>
   </ol>
 </div>
-
+<div class="ratings_form">
 <br><strong>ratings</srong></br>
 <%= render 'ratings/ratings' %>
+</div>
 
 <%= form_for([@book, @rating]) do |f|  %>
   <%= f.text_area :stars %>
