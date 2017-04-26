@@ -37,20 +37,20 @@ $(function(){
 })
 });
 
-$(function(){
-  $("#rating_stars").on("submit", function(e){
-    url = this.action
-    console.log(url)
-    data = 
-    $.ajax({
-      type: ($("input[name='_method']").val() || this.method),
-      url: this.action,
-      data: data,
-      sucess: function(response){
-        var $ol = $("div.ratings ol")
-        $ol.append(response);
-      })
-    });
-      e.preventDefault();
-  })
-});
+// $(function(){
+//   $("#rating_stars").on("submit", function(e){
+//     url = this.action
+//     console.log(url)
+//     data =
+//     $.ajax({
+//       type: ($("input[name='_method']").val() || this.method),
+//       url: this.action,
+//       data: data,
+//       sucess: function(response){
+//         var $ol = $("div.ratings ol")
+//         $ol.append(response);
+//       })
+//     });
+//       e.preventDefault();
+//   })
+// });
