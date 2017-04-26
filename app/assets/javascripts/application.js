@@ -16,3 +16,5 @@
 //= require_tree .
 //= require books
 //= require bootstrap
+//= require handlebars-v4.0.5
+//= require handlebars.runtime
