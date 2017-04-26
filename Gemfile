@@ -37,7 +37,7 @@ gem 'pry'
 gem 'dotenv'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'active_model_serializers'
 
 

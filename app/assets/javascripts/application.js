@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require books
-//= require bootstrap-sprockets
+//= require bootstrap
