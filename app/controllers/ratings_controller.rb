@@ -2,6 +2,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
+    @book = #find the book according to the params book_id
     @ratings = Rating.all
     # @ratings = @book.ratings
     render :json => @ratings

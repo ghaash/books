@@ -1,5 +1,7 @@
 <ol>
   <% @ratings.each do |r| %>
-  <li><%= r.stars %></li>
+  <% if r.stars %>
+    <li><%= r.stars %></li>
+  <% end %>
   <% end %>
 </ol>

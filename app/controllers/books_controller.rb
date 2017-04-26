@@ -16,6 +16,7 @@ end
 
   def show
     @ratings = @book.ratings
+    # binding.pry
 @rating = @book.ratings.build
   end
 

@@ -38,6 +38,8 @@ gem 'dotenv'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
+gem 'active_model_serializers'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
