@@ -1,3 +1,4 @@
 class RatingSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :stars
+  belongs_to :book
 end
