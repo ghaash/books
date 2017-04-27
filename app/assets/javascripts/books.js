@@ -37,9 +37,18 @@ $(function(){
 })
 });
 
+const Book = function() {
+  const setAttributes = (attributes) => {
+    this.title = attributes.title;
+    this.author = attributes.author;
+    this.genre = attributes.genre;
+    this.description = attributes.description;
+    this.page_length = attributes.page_length;
+  };
+
 $(function () {
   // Grab the template script
-  var theTemplateScript = $("#address-template").html();
+  var theTemplateScript = $("#book-shelf").html();
 
   // Compile the template
   var theTemplate = Handlebars.compile(theTemplateScript);
@@ -55,7 +64,7 @@ $(function () {
   var theCompiledHtml = theTemplate(context);
 
   // Add the compiled html to the page
-  $('.content-placeholder').html(theCompiledHtml);
+  $('.book-shelf-placeholder').html(theCompiledHtml);
 });
 
 // $(function(){
