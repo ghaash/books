@@ -40,3 +40,80 @@ rating index html erb
 <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
 <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <%= link_to 'New Rating', new_rating_path %>
+--------------------------------------------------------------------------------------------------------------------------------
+// const Book = function() {
+//   const setAttributes = (attributes) => {
+//     this.title = attributes.title;
+//     this.author = attributes.author;
+//     this.genre = attributes.genre;
+//     this.description = attributes.description;
+//     this.page_length = attributes.page_length;
+//   };
+//
+//   function Book(attributes) {
+//     this.title = attributes.title;
+//     this.author = attributes.author;
+//     this.genre = attributes.genre;
+//     this.description = attributes.description;
+//     this.page_length = attributes.page_length;
+// };
+
+$(function () {
+  // Grab the template script
+  var theTemplateScript = $("#book-shelf").html();
+
+  // Compile the template
+  var theTemplate = Handlebars.compile(theTemplateScript);
+
+  // Define our data object
+  // var context={
+  //   "title": "leviathan wakes",
+  //   "author": "james corey",
+  //   "genre": "science fiction",
+  //   "description": "humans in space",
+  //   "page_length": "600"
+  // };
+
+  // Pass our data to the template
+  var theCompiledHtml = theTemplate(Book);
+
+  // Add the compiled html to the page
+  $('.book-shelf-placeholder').html(theCompiledHtml);
+});
+
+// $(function(){
+//   $("#rating_stars").on("submit", function(e){
+//     url = this.action
+//     console.log(url)
+//     data =
+//     $.ajax({
+//       type: ($("input[name='_method']").val() || this.method),
+//       url: this.action,
+//       data: data,
+//       sucess: function(response){
+//         var $ol = $("div.ratings ol")
+//         $ol.append(response);
+//       })
+//     });
+//       e.preventDefault();
+//   })
+// });
+
+// $(function(){
+//   $("a.book-index").on("click", function(e){
+//     alert('book index clicked')
+//   //   $.ajax({
+//   //     method: "GET",
+//   //     url: this.href
+//   //   })
+//   //   .success(function(json){
+//   //
+//   //     var $ol = $("div.ratings ol")
+//   //     $ol.html("")
+//   //     json.forEach(function(ratings){
+//   //     $ol.append("<li>" + ratings.stars + "</li>");
+//   //   })
+//   // })
+//   e.preventDefault();
+//   // })
+// });

@@ -2,6 +2,13 @@
 
 <script id="book-shelf" type="text/x-handlebars-template">
   <p>You can find me in {{city}}. My address is {{number}} {{street}}.</p>
+  <tbody>
+    <td>title: {{title}}</td>
+    <td>author: {{author}}</td>
+    <td>genre: {{genre}}</td>
+    <td>description: {{description}}</td>
+    <td>pages: {{page_length}}</td>
+  </tbody>
 </script>
 
 <!--Your new content will be displayed in here-->
@@ -26,8 +33,8 @@
   <tbody>
     <% @books.each do |book| %>
     <td>title: <%= book.title %></td>
-    <td>genre: <%= book.author %></td>
-    <td>description: <%= book.genre %></td>
+    <td>author: <%= book.author %></td>
+    <td>genre: <%= book.genre %></td>
     <td>description: <%= book.description %></td>
     <td>pages: <%= book.page_length %></td>
 
