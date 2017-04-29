@@ -10,23 +10,6 @@ $(function(){
       method: "GET",
       url: this.href
     }).success(function(json){
-
-    // }
-// low level ajax html
-//     $.ajax({
-//       method: "GET",
-//       url: this.href
-//     }).success(function(response){
-// $("div.ratings").html(response)
-//     }).error(function(notNeeded){
-//       alert("we broke!!!!")
-//     });
-// jquery get
-// $.get(this.href).success(function(response){
-//   $("div.ratings").html(response)
-// })
-
-// $.get(this.href).success(function(json){
   var $ol = $("div.ratings ol")
   $ol.html("")
   json.forEach(function(ratings){
@@ -35,4 +18,22 @@ $(function(){
 })
     e.preventDefault();
 })
+});
+
+$(function(){
+  $("a.book-index").on("click", function(e){
+    alert('book index clicked')
+    $.ajax({
+      method: "GET",
+      url: this.href
+    })
+    .success(function(json){
+      var $ol = $("div.ratings ol")
+      $ol.html("")
+      json.forEach(function(ratings){
+      $ol.append("<li>" + ratings.stars + "</li>");
+    })
+  })
+  e.preventDefault();
+  })
 });
