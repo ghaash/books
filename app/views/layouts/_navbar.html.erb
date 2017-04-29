@@ -1,2 +1,17 @@
+<ul>
+<%=link_to 'Home', root_path %>
 <%=link_to 'Book Shelf', books_path, :class => "book-index" %>
-<%=link_to 'Your Reviews', books_path, :class => "rating-index" %>
+<%=link_to 'Your Reviews', ratings_path, :class => "rating-index" %>
+</ul>
+
+<% if user_signed_in? %>
+<%= link_to current_user.email, edit_user_registration_path %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Sign Up", new_user_registration_path %>
+<%= link_to "Login", new_user_session_path %>
+<%= link_to "Login with Facebook", user_facebook_omniauth_authorize_path %>
+<% end %>
+
+<!-- center book shelf and your rviews on the right and login logut on left -->
+<!-- have books show up via json -->
