@@ -25,12 +25,12 @@ $(function(){
     alert('book index clicked')
     $.ajax({
       method: "GET",
-      url: this.href
+      url: "/books"
     })
     .success(function(json){
-      var $ol = $("div.ratings ol")
+      var $ol = $("div.book-index-insert ol")
       $ol.html("")
-      json.forEach(function(ratings){
+      json.forEach(function(index){
       $ol.append("<li>" + ratings.stars + "</li>");
     })
   })
