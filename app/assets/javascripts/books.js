@@ -31,7 +31,7 @@ $(function(){
       var $ol = $("div.book-index-insert ol")
       $ol.html("")
       json.forEach(function(index){
-      $ol.append("<li>" + ratings.stars + "</li>");
+      $ol.append("<li>" + book.title + "</li>", "<li>" + book.author + "</li>", "<li>" + book.genre + "</li>", "<li>" + book.description + "</li>", "<li>" + book.page_length + "</li>" "<li>" + ratings.stars + "</li>");
     })
   })
   e.preventDefault();
