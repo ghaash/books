@@ -1,0 +1,26 @@
+<body>
+<p id="notice"><%= notice %></p>
+
+<div class="book-shelf-placeholder"></div>
+
+<h1>Books</h1>
+<div>
+  <h3>Filter books:</h3>
+    <%= form_tag("/books", method: "get") do %>
+    <%= select_tag "sort", options_for_select(["Title", "Author"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
+<div class="books">
+  <ul>
+  </ul>
+</div>
+
+<div class="ratings">
+  <ol>
+  </ol>
+</div>
+
+<%= link_to 'New Book', new_book_path %>
+</body>
