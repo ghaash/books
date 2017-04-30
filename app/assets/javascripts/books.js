@@ -4,16 +4,17 @@
 
 $(function(){
   $("a.book_index").on("click", function(e){
+    debugger
     $.ajax({
       method: "GET",
       url: this.href
     }).success(function(json){
-    var $ol = $("div.books ol")
-    $ol.html("")
-    json.forEach(function(books){
-    $ol.append("<li>" + book.title + "</li>");
+  var $ul = $("div.books ul")
+  $ul.html("")
+  json.forEach(function(books){
+    $ol.append("<li>" + books.title + "</li>");
     })
-    })
-  e.preventDefault();
+})
+    e.preventDefault();
 })
 });
