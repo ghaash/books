@@ -1,18 +1,6 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<script id="book-shelf" type="text/x-handlebars-template">
-  <p>You can find me in {{city}}. My address is {{number}} {{street}}.</p>
-  <tbody>
-    <td>title: {{title}}</td>
-    <td>author: {{author}}</td>
-    <td>genre: {{genre}}</td>
-    <td>description: {{description}}</td>
-    <td>pages: {{page_length}}</td>
-  </tbody>
-</script>
-
-<!--Your new content will be displayed in here-->
 <div class="book-shelf-placeholder"></div>
 
 <h1>Books</h1>
@@ -24,36 +12,12 @@
   <% end %>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="books">
+  <ul>
+  </ul>
+</div>
 
-  <tbody>
-    <% @books.each do |book| %>
-    <td>title: <%= book.title %></td>
-    <td>author: <%= book.author %></td>
-    <td>genre: <%= book.genre %></td>
-    <td>description: <%= book.description %></td>
-    <td>pages: <%= book.page_length %></td>
-
-    <% book.ratings.each do |r| %>
-    <td>review: <%= r.stars %> stars</td>
-    <% end %>
-      <tr>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<div class="book-index-insert">
+<div class="ratings">
   <ol>
   </ol>
 </div>

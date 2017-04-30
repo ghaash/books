@@ -58,28 +58,7 @@ rating index html erb
 //     this.page_length = attributes.page_length;
 // };
 
-$(function () {
-  // Grab the template script
-  var theTemplateScript = $("#book-shelf").html();
 
-  // Compile the template
-  var theTemplate = Handlebars.compile(theTemplateScript);
-
-  // Define our data object
-  // var context={
-  //   "title": "leviathan wakes",
-  //   "author": "james corey",
-  //   "genre": "science fiction",
-  //   "description": "humans in space",
-  //   "page_length": "600"
-  // };
-
-  // Pass our data to the template
-  var theCompiledHtml = theTemplate(Book);
-
-  // Add the compiled html to the page
-  $('.book-shelf-placeholder').html(theCompiledHtml);
-});
 
 // $(function(){
 //   $("#rating_stars").on("submit", function(e){
@@ -117,3 +96,30 @@ $(function () {
 //   e.preventDefault();
 //   // })
 // });
+--------------
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+    <td>title: <%= book.title %></td>
+    <td>author: <%= book.author %></td>
+    <td>genre: <%= book.genre %></td>
+    <td>description: <%= book.description %></td>
+    <td>pages: <%= book.page_length %></td>
+
+    <% book.ratings.each do |r| %>
+    <td>review: <%= r.stars %> stars</td>
+    <% end %>
+      <tr>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

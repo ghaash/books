@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<%= render 'layouts/navbar' %>
+
+<html>
+  <head>
+    <title>Books</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id='app-container'><%= yield %></div>
+  </body>
+</html>
+ 
