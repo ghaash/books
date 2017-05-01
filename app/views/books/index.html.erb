@@ -12,9 +12,36 @@
   <% end %>
 </div>
 
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+    <td>title: <%= book.title %></td>
+    <td>author: <%= book.author %></td>
+    <td>genre: <%= book.genre %></td>
+    <td>description: <%= book.description %></td>
+    <td>pages: <%= book.page_length %></td>
+
+    <% book.ratings.each do |r| %>
+    <td>review: <%= r.stars %> stars</td>
+    <% end %>
+      <tr>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <div class="books">
-  <ul>
-  </ul>
+  <ol>
+  </ol>
 </div>
 
 <div class="ratings">

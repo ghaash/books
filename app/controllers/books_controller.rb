@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     end
  else
    @books = Book.all
-  #  render json: @books
+   render json: @books
  end
 end
 
