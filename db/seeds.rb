@@ -13,7 +13,7 @@ seeds = [
   :genre => "Science Fiction",
   :description => "A Game Of Thrones in Space",
   :page_length => "582",
-  :ratings_attributes => [:stars => 4.2]
+  :ratings_attributes => [:stars => 5]
   },
 
   {
@@ -22,7 +22,7 @@ seeds = [
   :genre => "Star Wars",
   :description => "Star Wars with zombies",
   :page_length => "288",
-  :ratings_attributes => [:stars => 3.6]
+  :ratings_attributes => [:stars => 5]
   },
   {
   :title => "Mistborn: The Final Empire",
@@ -30,7 +30,7 @@ seeds = [
   :genre => "Fantasy",
   :description => "Magic via metal",
   :page_length => "600",
-  :ratings_attributes => [:stars => 4.4]
+  :ratings_attributes => [:stars => 4]
   },
   {
   :title => "Sandstorm",
@@ -38,7 +38,7 @@ seeds = [
   :genre => "Speculative Fiction",
   :description => "Soldier spies with PHd's",
   :page_length => "608",
-  :ratings_attributes => [:stars => 3.9]
+  :ratings_attributes => [:stars => 4]
   },
   {
   :title => "The Name of the Wind",
@@ -46,9 +46,8 @@ seeds = [
   :genre => "Fantasy",
   :description => "A Game Of Thrones in Space",
   :page_length => "662",
-  :ratings_attributes => [:stars => 4.6]
+  :ratings_attributes => [:stars => 5]
   }
-
 ]
 
 seeds.each do |book|

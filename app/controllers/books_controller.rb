@@ -16,9 +16,11 @@ class BooksController < ApplicationController
 end
 
   def show
+#     @ratings = @book.ratings
+#     # binding.pry
+# @rating = @book.ratings.build
     @ratings = @book.ratings
-    # binding.pry
-@rating = @book.ratings.build
+    @rating =  @book.ratings.build
   end
 
   def new
