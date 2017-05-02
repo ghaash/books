@@ -123,3 +123,11 @@ rating index html erb
     <% end %>
   </tbody>
 </table>
+
+<div>
+  <h3>Filter books:</h3>
+    <%= form_tag("/books", method: "get") do %>
+    <%= select_tag "sort", options_for_select(["Title", "Author"]), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
