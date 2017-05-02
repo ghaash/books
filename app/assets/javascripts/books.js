@@ -4,7 +4,6 @@
 
 $(function(){
   $("a.book_index").on("click", function(e){
-
     $.ajax({
       method: "GET",
       url: this.href
@@ -12,15 +11,11 @@ $(function(){
   var $ol = $("div.books ol")
   $ol.html("<li><strong>Your Book Shelf</strong></li>")
   json.forEach(function(books){
-    $ol.append(`
-      <li class="booktitle">
-        <a href="books/${books.id}">${books.title}</a>
+    $ol.append(`<li class="booktitle">
+        <a class="booklink" href="books/${books.id}">${books.title}</a>
       </li>`);
     })
 })
     e.preventDefault();
 })
 });
-
-//add href to books to get to show page
-// change for reviews as well

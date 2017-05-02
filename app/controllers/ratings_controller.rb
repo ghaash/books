@@ -3,14 +3,12 @@ class RatingsController < ApplicationController
 
   def index
     # @book = #find the book according to the params book_id
-    # @ratings = Rating.all
-    @ratings = @book.ratings
-
+    @ratings = Rating.all || @book.ratings
+    # @ratings = @book.ratings
     render :json => @ratings
   end
 
   def show
-
   end
 
   def new
@@ -22,9 +20,9 @@ class RatingsController < ApplicationController
 
   def create
     @book = Book.find_by_id(params[:book_id])
-    @rating = @book.ratings.build(rating_params)
-    # @rating = Rating.new(rating_params)
-    render json: @rating
+    # @rating = @book.ratings.build(rating_params)
+    @rating = Rating.new(rating_params) || @book.ratings.build(rating_params)
+    render json: @ratings
 
     # respond_to do |format|
     #   if @rating.save

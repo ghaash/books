@@ -16,13 +16,19 @@
 <br><%= @book.page_length %></br>
 
 <p><%= link_to "show rating", book_ratings_path(@book), :class => "display_rating" %>
+
 <div class="ratings">
   <ol>
   </ol>
 </div>
+
+<div class="ratingsform">
+  <ol>
+  </ol>
+</div>
+
 <div class="ratings_form">
 <br><strong>ratings</strong></br>
-
 <%= render 'ratings/ratings' %>
 </div>
 

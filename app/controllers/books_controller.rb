@@ -14,7 +14,7 @@ class BooksController < ApplicationController
    render json: @books
  end
 end
-
+ 
   def show
 #     @ratings = @book.ratings
 #     # binding.pry
