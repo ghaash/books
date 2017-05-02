@@ -12,6 +12,8 @@
 <ul>
 <li><%=link_to 'Home', root_path %></li>
 <li><%=link_to 'Book Shelf', books_path, :class => "book_index" %></li>
+<li><%= link_to 'New Book', new_book_path %></li>
 <li><%=link_to 'Your Reviews', ratings_path, :class => "rating_index" %></li>
+<li><%=link_to 'New Review', new_rating_path %></li>
 </ul>
 <!-- have books show up via json -->

@@ -9,9 +9,10 @@ $(function(){
       url: this.href
     }).success(function(json){
   var $ol = $("div.ratings ol")
-  $ol.html("")
+  $ol.html("<li><strong>Your Ratings</strong></li>")
   json.forEach(function(ratings){
-    $ol.append(`<li class="ratingtitle"><a href="ratings/${ratings.id}">${ratings.stars}</a></li>`);
+    $ol.append(`
+      <li class="ratingtitle"><a href="ratings/${ratings.id}">${ratings.stars}</a></li>`);
     })
 })
     e.preventDefault();
