@@ -12,9 +12,12 @@ $(function(){
   var $ol = $("div.books ol")
   $ol.html("")
   json.forEach(function(books){
-    $ol.append("<li>" + books.title + "</li>");
+    $ol.append(`<li class="booktitle"> <a href="books/${books.id}">${books.title}</a></li>`);
     })
 })
     e.preventDefault();
 })
 });
+
+//add href to books to get to show page
+// change for reviews as well

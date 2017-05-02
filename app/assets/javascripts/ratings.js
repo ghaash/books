@@ -34,6 +34,8 @@ $(function(){
 })
 });
 
+//jquery toggle, to turn on off
+
 $(function(){
   $("#rating_stars").on("submit", function(e){
 

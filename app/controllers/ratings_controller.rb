@@ -19,6 +19,7 @@ class RatingsController < ApplicationController
   end
 
   def create
+    # add book.rating
     @rating = Rating.new(rating_params)
     # @rating = @book.ratings.build(rating_params)
 
