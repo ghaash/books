@@ -5,6 +5,8 @@ class RatingsController < ApplicationController
     # @book = #find the book according to the params book_id
     @ratings = Rating.all
     # @ratings = @book.ratings
+    # @rating = @book.rating
+
     render :json => @ratings
   end
 
@@ -20,8 +22,9 @@ class RatingsController < ApplicationController
   end
 
   def create
-    # add book.rating
     @rating = Rating.new(rating_params)
+    # @book = Book.find(params[:book_id])
+    #   @rating = @book.ratings.build(params[:rating])
     # @rating = @book.ratings.build(rating_params)
 
     respond_to do |format|
