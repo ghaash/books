@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div class="booksshow">
+  <ol>
+
+
 <br><strong>Title</strong></br>
 <br><%= @book.title %></br>
 
@@ -37,5 +41,6 @@
 <p><%= f.submit %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Edit', edit_book_path(@book) %>
+</ol>
+</div>

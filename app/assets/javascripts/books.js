@@ -19,3 +19,21 @@ $(function(){
     e.preventDefault();
 })
 });
+
+$(function(){
+  $("a.book_index").on("click", function(e){
+    $.ajax({
+      method: "GET",
+      url: this.href
+    }).success(function(json){
+  var $ol = $("div.booksshow ol")
+  $ol.html("<li><strong>Your Book Shelf</strong></li>")
+  json.forEach(function(books){
+    $ol.append(`<li class="booktitle">
+        <a class="booklink" href="${books.id}">${books.title}</a>
+      </li>`);
+    })
+})
+    e.preventDefault();
+})
+});
