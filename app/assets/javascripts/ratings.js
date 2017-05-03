@@ -28,7 +28,7 @@ $(function(){
   var $ol = $("div.ratings ol")
   $ol.html("")
   json.forEach(function(ratings){
-    $ol.append("<li>" + ratings.stars + "</li>");
+    $ol.append(`<li class="ratingsinsert">${ratings.stars}</li>`);
     })
 })
     e.preventDefault();
