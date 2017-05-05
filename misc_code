@@ -57,7 +57,7 @@ rating index html erb
 //     this.description = attributes.description;
 //     this.page_length = attributes.page_length;
 // };
-
+-------------
 
 
 // $(function(){
@@ -130,4 +130,11 @@ rating index html erb
     <%= select_tag "sort", options_for_select(["Title", "Author"]), include_blank: true %>
     <%= submit_tag "Filter" %>
   <% end %>
+</div>
+---------------
+<p><%= link_to "show rating", book_ratings_path(@book), :class => "display_rating" %>
+
+<div class="ratings">
+  <ol>
+  </ol>
 </div>

@@ -11,9 +11,7 @@ $(function(){
   var $ol = $("div.books ol")
   $ol.html("<li><strong>Your Book Shelf</strong></li>")
   json.forEach(function(books){
-    $ol.append(`<li class="booktitle">
-        <a class="booklink" href="books/${books.id}">${books.title}</a>
-      </li>`);
+    $ol.append(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
     })
 })
     e.preventDefault();

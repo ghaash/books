@@ -1,0 +1,7 @@
+ditch show ratings in books/show
+keep add rating
+move show ratings to form page and have an ajax post request there
+
+PROJECT DONE
+
+use appcontainer and add in new ol to clear page and reduce functions to 1

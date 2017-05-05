@@ -3,18 +3,10 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-  if !params[:sort].blank?
-    if params[:sort] == "Title"
-      @books = Book.title_sort
-    else
-      @books = Book.author_sort
-    end
- else
    @books = Book.all
    render json: @books
- end
 end
- 
+
   def show
 #     @ratings = @book.ratings
 #     # binding.pry
@@ -29,21 +21,22 @@ end
   end
 
   def edit
+    render json: @books
   end
 
   def create
     @book = Book.new(book_params)
-
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
-
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
-    end
+    render json: @books
+    # respond_to do |format|
+    #   if @book.save
+    #     format.html { redirect_to @book, notice: 'Book was successfully created.' }
+    #     format.json { render :show, status: :created, location: @book }
+    #
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @book.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def update
@@ -60,10 +53,11 @@ end
 
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render json: @books
+    # respond_to do |format|
+    #   format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
