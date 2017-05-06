@@ -5,3 +5,9 @@ move show ratings to form page and have an ajax post request there
 PROJECT DONE
 
 use appcontainer and add in new ol to clear page and reduce functions to 1
+have js paint everything
+
+JS - single page app with layout
+1. Add your book shelf to every page via layout
+2. add create form to render
+3. 
