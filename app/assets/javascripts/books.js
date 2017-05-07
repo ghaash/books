@@ -9,7 +9,7 @@ $(function(){
       url: this.href
     }).success(function(json){
   var $ol = $(".books ol")
-  $ol.html("<li><strong>Your Book Shelf</strong></li>")
+  $ol.html(`<li><strong>Your Book Shelf</strong></li>`)
   json.forEach(function(books){
     $ol.append(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
     })
@@ -17,6 +17,11 @@ $(function(){
     e.preventDefault();
 })
 });
+
+$(function(){
+  $("")
+
+})
 //
 // $(function(){
 //   $("a.book_index").on("click", function(e){
