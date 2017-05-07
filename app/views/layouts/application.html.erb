@@ -12,9 +12,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body><div id="appcontainer">
-    <ol>
-    </ol>
-    <%= yield %></div>
+  <body>
+    <%= yield %>
+    <div id="appcontainer">
+      <ol>
+      </ol>
+    </div>
   </body>
 </html>

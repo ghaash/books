@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<body>
 <div class="books">
   <ol>
 
@@ -23,6 +23,11 @@
   </ol>
 </div>
 
+<div class="booklink">
+  <ol>
+  </ol>
+</div>
+
 <div class="ratings_form">
 <br><strong>ratings</strong></br>
 <%= render 'ratings/ratings' %>
@@ -36,3 +41,4 @@
 <%= link_to 'Edit', edit_book_path(@book) %>
 </ol>
 </div>
+</body>
