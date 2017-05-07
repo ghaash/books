@@ -3,8 +3,8 @@ class RatingsController < ApplicationController
 
   def index
     # @book = #find the book according to the params book_id
-    binding.pry
     if params[:book_id]
+      @book = Book.find_by_id(params[:book_id])
       @ratings = @book.ratings
     else
       @ratings = Rating.all

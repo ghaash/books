@@ -2,6 +2,8 @@
 
 <%= render 'layouts/navbar' %>
 
+
+
 <html>
   <head>
     <title>Books</title>
@@ -10,12 +12,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= yield %>
-    <div id='appcontainer'>
-      <ol>
-      </ol>
-    </div>
+  <body><div id="appcontainer">
+    <ol>
+    </ol>
+    <%= yield %></div>
   </body>
 </html>
+
+cant render because it doesnt exist
+make _show and render it in layout?
