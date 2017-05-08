@@ -12,7 +12,7 @@ $(function(){
   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
   json.forEach(function(books){
     $renderAllBooks.append(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
-    })
+  })
 })
     e.preventDefault();
 })
