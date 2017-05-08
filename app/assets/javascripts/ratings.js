@@ -2,6 +2,8 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+// built function to create and render new rating
+
 $(function(){
   $("a.rating_index").on("click", function(e){
     $.ajax({

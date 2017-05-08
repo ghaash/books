@@ -24,12 +24,15 @@ $(function(){
       method: "GET",
       url: this.href
     }).success(function(json){
-      var $renderOneBook = $(".booklink ol")
-      $renderOneBook.html("hiiiii")
+      var $renderOneBook = $(".inner ol")
+      $renderOneBook.html("")
       json.forEach(function(books){
-        $renderOneBook.append(`${books.title}`);
+        debugger
+        $renderOneBook.replaceAll(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
       })
     })
     e.preventDefault();
   })
 });
+
+//built function to render a new book
