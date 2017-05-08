@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require books
-//= require books
-//= require bootstrap

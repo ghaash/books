@@ -9,17 +9,13 @@
     <title>Books</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
   </head>
   <body>
     <%= yield %>
     <div id="appcontainer">
-      <ol>
-        <div class="inner">
-          <ol>
-          </ol>
-        </div>
+      <ol> 
       </ol>
     </div>
   </body>

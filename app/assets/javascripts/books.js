@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(function(){
-  $("a.book_index").on("click", function(e){
+  $(".book_index").on("click", function(e){
     $.ajax({
       method: "GET",
       url: this.href
@@ -18,21 +18,30 @@ $(function(){
 })
 });
 
-$(function(){
-  $("a.booklink").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: this.href
-    }).success(function(json){
-      var $renderOneBook = $("#appcontainer ol")
-      $renderOneBook.html("fff")
-      json.forEach(function(books){
-        debugger
-        $renderOneBook.replaceAll(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
-      })
-    })
-    e.preventDefault();
-  })
-});
+$(".book_create").on("click", function(e){
+  alert("you clicked me successfully")
+  e.preventDefault();
+})
+
+// $(".booklink").on("click", function(e){
+//   alert("you clicked me successfully")
+//   e.preventDefault();
+// });
+
+// $(function(){
+//   $("a.booklink").on("click", function(e){
+//     $.ajax({
+//       method: "GET",
+//       url: this.href // probably wrong
+//     }).success(function(json){
+//       var $renderOneBook = $("#appcontainer ol")
+//       $renderOneBook.html("fff")
+//       json.forEach(function(books){
+//         $renderOneBook.replaceAll(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
+//       })
+//     })
+//     e.preventDefault();
+//   })
+// });
 
 //built function to render a new book
