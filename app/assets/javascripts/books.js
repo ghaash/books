@@ -24,8 +24,8 @@ $(function(){
       method: "GET",
       url: this.href
     }).success(function(json){
-      var $renderOneBook = $(".inner ol")
-      $renderOneBook.html("")
+      var $renderOneBook = $("#appcontainer ol")
+      $renderOneBook.html("fff")
       json.forEach(function(books){
         debugger
         $renderOneBook.replaceAll(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
