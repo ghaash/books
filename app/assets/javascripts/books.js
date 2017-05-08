@@ -23,6 +23,18 @@ $(".book_create").on("click", function(e){
   e.preventDefault();
 })
 
+$(function(){
+  $("a.book_create").on("click", function(e){
+    $.ajax({
+      method: "GET",
+      url: this.href
+    }).success(function(json){
+      var $renderCreateBook = $("#appcontainer ol")
+      $renderCreateBook.html("fff")
+    })
+  })
+})
+
 // $(".booklink").on("click", function(e){
 //   alert("you clicked me successfully")
 //   e.preventDefault();
