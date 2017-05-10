@@ -26,7 +26,8 @@ end
 
   def create
     @book = Book.new(book_params)
-    render json: @books
+    redirec_to 'welcome#home'
+    # render json: @books
     # respond_to do |format|
     #   if @book.save
     #     format.html { redirect_to @book, notice: 'Book was successfully created.' }

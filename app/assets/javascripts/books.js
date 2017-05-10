@@ -11,34 +11,39 @@ $(function(){
   var $renderAllBooks = $("#appcontainer ol")
   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
   json.forEach(function(books){
-    $renderAllBooks.append(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
-  })
+    $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${books.id}">${books.title}</a></li>`);
+})
+booktitleClick()
 })
     e.preventDefault();
 })
 });
 
-$(".book_create").on("click", function(e){
+// $("a.book_create").on("click", function(e){
+//   alert("you clicked me successfully")
+//   e.preventDefault();
+// });
+
+//add in success, wrap it in a function, it call it in a function
+function booktitleClick() {
+$(".booktitle").on("click", function(e){
   alert("you clicked me successfully")
   e.preventDefault();
-})
+});
+}
 
 $(function(){
   $("a.book_create").on("click", function(e){
     $.ajax({
       method: "GET",
-      url: this.href
+      url: "/books/new"
     }).success(function(json){
       var $renderCreateBook = $("#appcontainer ol")
       $renderCreateBook.html("fff")
     })
+    e.preventDefault();
   })
-})
-
-// $(".booklink").on("click", function(e){
-//   alert("you clicked me successfully")
-//   e.preventDefault();
-// });
+});
 
 // $(function(){
 //   $("a.booklink").on("click", function(e){
