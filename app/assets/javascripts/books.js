@@ -19,15 +19,12 @@ booktitleClick()
 })
 });
 
-// $("a.book_create").on("click", function(e){
-//   alert("you clicked me successfully")
-//   e.preventDefault();
-// });
-
-//add in success, wrap it in a function, it call it in a function
+//would document.getElementById("#booklink") work here?
 function booktitleClick() {
 $(".booktitle").on("click", function(e){
-  alert("you clicked me successfully")
+  $.get()
+  var $renderForm = $("#appcontainer ol")
+  $renderForm.html(`the book show appears!`) // needs to render a form, js erb? but like ewwwwwwww, no it didn't work not without remote: true
   e.preventDefault();
 });
 }
@@ -37,28 +34,10 @@ $(function(){
     $.ajax({
       method: "GET",
       url: "/books/new"
-    }).success(function(json){
+    }).success(function(data){
       var $renderCreateBook = $("#appcontainer ol")
-      $renderCreateBook.html("fff")
+      $renderCreateBook.html(`<h1>a wild form appears</h1>`)
     })
     e.preventDefault();
   })
 });
-
-// $(function(){
-//   $("a.booklink").on("click", function(e){
-//     $.ajax({
-//       method: "GET",
-//       url: this.href // probably wrong
-//     }).success(function(json){
-//       var $renderOneBook = $("#appcontainer ol")
-//       $renderOneBook.html("fff")
-//       json.forEach(function(books){
-//         $renderOneBook.replaceAll(`<li class="booktitle"><a class="booklink" href="books/${books.id}">${books.title}</a></li>`);
-//       })
-//     })
-//     e.preventDefault();
-//   })
-// });
-
-//built function to render a new book

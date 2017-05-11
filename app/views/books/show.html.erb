@@ -1,7 +1,4 @@
 <p id="notice"><%= notice %></p>
-<body>
-<div class="books">
-  <ol>
 
 <br><strong>Title</strong></br>
 <br><%= @book.title %></br>
@@ -18,27 +15,9 @@
 <br><strong>Page Length</strong></br>
 <br><%= @book.page_length %></br>
 
-<div class="ratingsform">
-  <ol>
-  </ol>
-</div>
-
-<div class="booklink">
-  <ol>
-  </ol>
-</div>
-
-<div class="ratings_form">
+<div class="ratings_display">
 <br><strong>ratings</strong></br>
 <%= render 'ratings/ratings' %>
 </div>
 
-<%= form_for([@book, @rating]) do |f|  %>
-<%= f.text_area :stars %>
-<p><%= f.submit %></p>
-<% end %>
-
 <%= link_to 'Edit', edit_book_path(@book) %>
-</ol>
-</div>
-</body>
