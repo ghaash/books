@@ -41,3 +41,31 @@ $(function(){
     e.preventDefault();
   })
 });
+
+function Book(book) {
+  this.id = book.id
+  this.title = book.title
+  this.author = book.author
+  this.genre = book.genre
+  this.description = book.description
+  this.page_length = book.page_length
+}
+
+//try this
+// */
+// function textareaFunction(){
+// var r = document.createElement('span');
+// var y = document.createElement("TEXTAREA");
+// var g = document.createElement("IMG");
+// y.setAttribute("cols", "17");
+// y.setAttribute("placeholder", "message..");
+// g.setAttribute("src", "delete.png");
+// increment();
+// y.setAttribute("Name", "textelement_" + i);
+// r.appendChild(y);
+// g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+// r.appendChild(g);
+// r.setAttribute("id", "id_" + i);
+// document.getElementById("myForm").appendChild(r);
+// }
+// /*
