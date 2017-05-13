@@ -7,6 +7,12 @@
 // add form with the LET formHTML = the formHTML
 // watch video
 
+//05/13/2017 battle plan!!! almost done home stretch
+//finish show page, figure out why its coming undefined, look at your constructor, its not tying in..?
+//^check rails and .forEach
+//add create form
+//add click event to rendetr form button
+
 $(function(){
   $(".book_index").on("click", function(e){
     $.ajax({
@@ -25,57 +31,33 @@ booktitleClick()
 });
 
 function booktitleClick() {
-  $(document).on('click', ".booktitle", function(e) {
+  $(".booktitle").on("click", function(e) {
     e.preventDefault()
-    $('#appcontainer').html('')
-    let id = $(this).attr('data-id')
+    $('#appcontainer ol').html('')
     fetch(`/books`)
     .then(res => res.json())
-    .then(book => {
+    .then(books => {
+ books.forEach(book => {
       let newBook = new Book(book)
-
       let bookshowHTML = newBook.formatShow()
-
-      $('#appcontainer').append(bookshowHTML)
+      $('#appcontainer ol').append(bookshowHTML)
     })
   })
+})
 };
-//
-// function booktitleClick() {
-// $(".booktitle").on("click", function(e){
-//   // e.preventDefault()
-//   //     $('#app-container').html('hiiiii')
-//   //     // let id = $(this).attr('data-id')
-//   //     // fetch(`/books/${id}.json`)
-//   //     // .then(response => response.json())
-//   //     // .then(book => {
-//   //       let newBook = new Book(book)
-//   //
-//   //       let bookshowHTML = newBook.formatShow()
-//   //
-//   //       $('#app-container').append(bookshowHTML)
-//   var $renderForm = $("#appcontainer ol")
-//   $renderForm.html(`the book show appears!`) // needs to render a form, js erb? but like ewwwwwwww, no it didn't work not without remote: true
-//   e.preventDefault();
-// // })
-// // })
-// })
-// };
-// // };
 
-// $(function(){
-//   $("a.book_create").on("click", function(e){
-//     $.ajax({
-//       method: "GET",
-//       url: "/books/new"
-//     }).success(function(data){
-//       var $renderCreateBook = $("#appcontainer ol")
-//       $renderCreateBook.html(`<h1>a wild form appears</h1>`)
-//     })
-//     e.preventDefault();
-//   })
-// });
-//
+$(function(){
+  $("a.book_create").on("click", function(e){
+    $.ajax({
+      method: "GET",
+      url: "/books/new"
+    }).success(function(data){
+      var $renderCreateBook = $("#appcontainer ol")
+      $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+    })
+    e.preventDefault();
+  })
+});
 
 function Book(book) {
   this.id = book.id
@@ -91,7 +73,8 @@ Book.prototype.formatIndex = function() {
 }
 
 Book.prototype.formatShow = function() {
-  let bookshowHTML = `<h1>${this.title}</h1>
+  let bookshowHTML = `
+  <h1>${this.title}</h1>
   <h2>${this.author}</h2>
   <h2>${this.genre}</h2>
   <h2>${this.description}</h2>
