@@ -138,3 +138,79 @@ rating index html erb
   <ol>
   </ol>
 </div>
+
+---------------------------------------------------------------------------------------------------
+cernan's code
+$(() => {
+  bindClickHandlers()
+})
+
+const bindClickHandlers = () => {
+  $('.book_index').on('click', e => {
+    e.preventDefault()
+    history.pushState(null, null, "books")
+    getBooks()
+
+  })
+
+  $(document).on('click', ".booktitle", function(e) {
+    e.preventDefault()
+    $('#appcontainer').html('')
+    let id = $(this).attr('data-id')
+    fetch(`/books/${id}.json`)
+    .then(res => res.json())
+    .then(book => {
+      let newBook = new Book(book)
+
+      let bookHtml = newBook.formatShow()
+
+      $('#appcontainer').append(bookHtml)
+    })
+  })
+
+  $(document).on('click', 'next-book', function() {
+    let id = $(this).attr('data-id')
+    fetch(`books/${id}/next`)
+
+  })
+}
+
+const getBooks = () => {
+  fetch(`/books.json`)
+    .then(res => res.json())
+    .then(books => {
+       $('#appcontainer').html('')
+       books.forEach(book => {
+         let newBook = new Book(book)
+
+         let bookHtml = newBook.formatIndex()
+
+         $('#appcontainer').append(bookHtml)
+       })
+    })
+}
+
+function Book(book) {
+  this.id = book.id
+  this.title = book.title
+  this.content = book.content
+  this.user = book.user
+  this.comments = book.comments
+
+
+}
+
+Book.prototype.formatIndex = function(){
+  let bookHtml = `
+    <a href="/books/${this.id}" data-id="${this.id}" class="booktitle"><h1>${this.title}</h1></a>
+  `
+  return bookHtml
+}
+
+Book.prototype.formatShow = function(){
+  let bookHtml = `
+    <h3>${this.title}</h3>
+    <button class="next-book">Next</button>
+  `
+  return bookHtml
+}

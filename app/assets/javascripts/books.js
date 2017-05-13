@@ -11,7 +11,7 @@ $(function(){
   $(".book_index").on("click", function(e){
     $.ajax({
       method: "GET",
-      url: this.href
+      url: '/books'
     }).success(function(json){
   var $renderAllBooks = $("#appcontainer ol")
   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
@@ -24,38 +24,58 @@ booktitleClick()
 })
 });
 
-//would document.getElementById("#booklink") work here?
 function booktitleClick() {
-$(".booktitle").on("click", function(e){
-  // e.preventDefault()
-  //     $('#app-container').html('')
-  //     let id = $(this).attr('data-id')
-  //     fetch(`/posts/${id}.json`)
-  //     .then(res => res.json())
-  //     .then(post => {
-  //       let newPost = new Post(post)
-  //
-  //       let postHtml = newPost.formatShow()
-  //
-  //       $('#app-container').append(postHtml)
-  var $renderForm = $("#appcontainer ol")
-  $renderForm.html(`the book show appears!`) // needs to render a form, js erb? but like ewwwwwwww, no it didn't work not without remote: true
-  e.preventDefault();
-});
-}
+  $(document).on('click', ".booktitle", function(e) {
+    e.preventDefault()
+    $('#appcontainer').html('')
+    let id = $(this).attr('data-id')
+    fetch(`/books`)
+    .then(res => res.json())
+    .then(book => {
+      let newBook = new Book(book)
 
-$(function(){
-  $("a.book_create").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: "/books/new"
-    }).success(function(data){
-      var $renderCreateBook = $("#appcontainer ol")
-      $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+      let bookshowHTML = newBook.formatShow()
+
+      $('#appcontainer').append(bookshowHTML)
     })
-    e.preventDefault();
   })
-});
+};
+//
+// function booktitleClick() {
+// $(".booktitle").on("click", function(e){
+//   // e.preventDefault()
+//   //     $('#app-container').html('hiiiii')
+//   //     // let id = $(this).attr('data-id')
+//   //     // fetch(`/books/${id}.json`)
+//   //     // .then(response => response.json())
+//   //     // .then(book => {
+//   //       let newBook = new Book(book)
+//   //
+//   //       let bookshowHTML = newBook.formatShow()
+//   //
+//   //       $('#app-container').append(bookshowHTML)
+//   var $renderForm = $("#appcontainer ol")
+//   $renderForm.html(`the book show appears!`) // needs to render a form, js erb? but like ewwwwwwww, no it didn't work not without remote: true
+//   e.preventDefault();
+// // })
+// // })
+// })
+// };
+// // };
+
+// $(function(){
+//   $("a.book_create").on("click", function(e){
+//     $.ajax({
+//       method: "GET",
+//       url: "/books/new"
+//     }).success(function(data){
+//       var $renderCreateBook = $("#appcontainer ol")
+//       $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+//     })
+//     e.preventDefault();
+//   })
+// });
+//
 
 function Book(book) {
   this.id = book.id
@@ -64,43 +84,48 @@ function Book(book) {
   this.genre = book.genre
   this.description = book.description
   this.page_length = book.page_length
-  this.ratings = book.ratings.stars
+}
+
+Book.prototype.formatIndex = function() {
+  let bookindexHTML = `<h1>hiiii</h1>`
 }
 
 Book.prototype.formatShow = function() {
-  let bookshowHTML = `
-<h1>${this.title}</h1>
-<h2>${this.author}</h2>
-<h2>${this.genre}</h2>
-<h2>${this.description}</h2>
-<h2>${this.page_lengthgit commi}</h2>
-<h2>${this.ratings}</h2>
-`
+  let bookshowHTML = `<h1>${this.title}</h1>
+  <h2>${this.author}</h2>
+  <h2>${this.genre}</h2>
+  <h2>${this.description}</h2>
+  <h2>${this.page_length}</h2>
+  `
+  return bookshowHTML
 }
 
-//post.prototype.
 
-// let Form =
 
-// what is const
-
-// try pushstate
-
-//try this
-// */
-// function textareaFunction(){
-// var r = document.createElement('span');
-// var y = document.createElement("TEXTAREA");
-// var g = document.createElement("IMG");
-// y.setAttribute("cols", "17");
-// y.setAttribute("placeholder", "message..");
-// g.setAttribute("src", "delete.png");
-// increment();
-// y.setAttribute("Name", "textelement_" + i);
-// r.appendChild(y);
-// g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-// r.appendChild(g);
-// r.setAttribute("id", "id_" + i);
-// document.getElementById("myForm").appendChild(r);
-// }
-// /*
+//
+// //post.prototype.
+//
+// // let Form =
+//
+// // what is const
+//
+// // try pushstate
+//
+// //try this
+// // */
+// // function textareaFunction(){
+// // var r = document.createElement('span');
+// // var y = document.createElement("TEXTAREA");
+// // var g = document.createElement("IMG");
+// // y.setAttribute("cols", "17");
+// // y.setAttribute("placeholder", "message..");
+// // g.setAttribute("src", "delete.png");
+// // increment();
+// // y.setAttribute("Name", "textelement_" + i);
+// // r.appendChild(y);
+// // g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
+// // r.appendChild(g);
+// // r.setAttribute("id", "id_" + i);
+// // document.getElementById("myForm").appendChild(r);
+// // }
+// // /*
