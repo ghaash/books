@@ -36,8 +36,8 @@ function booktitleClick() {
     $('#appcontainer ol').html('')
     fetch(`/books`)
     .then(res => res.json())
-    .then(books => {
- books.forEach(book => {
+    .then(book => {
+      book.forEach(book => {
       let newBook = new Book(book)
       let bookshowHTML = newBook.formatShow()
       $('#appcontainer ol').append(bookshowHTML)
@@ -74,11 +74,11 @@ Book.prototype.formatIndex = function() {
 
 Book.prototype.formatShow = function() {
   let bookshowHTML = `
-  <h1>${this.title}</h1>
-  <h2>${this.author}</h2>
-  <h2>${this.genre}</h2>
-  <h2>${this.description}</h2>
-  <h2>${this.page_length}</h2>
+  <h1>Title: ${this.title}</h1>
+  <h2>Author: ${this.author}</h2>
+  <h2>Genre: ${this.genre}</h2>
+  <h2>Description: ${this.description}</h2>
+  <h2>Pages: ${this.page_length}</h2>
   `
   return bookshowHTML
 }
@@ -110,31 +110,3 @@ Book.prototype.formatForm = function () {
 </form>
   `
 }
-
-//
-// //post.prototype.
-//
-// // let Form =
-//
-// // what is const
-//
-// // try pushstate
-//
-// //try this
-// // */
-// // function textareaFunction(){
-// // var r = document.createElement('span');
-// // var y = document.createElement("TEXTAREA");
-// // var g = document.createElement("IMG");
-// // y.setAttribute("cols", "17");
-// // y.setAttribute("placeholder", "message..");
-// // g.setAttribute("src", "delete.png");
-// // increment();
-// // y.setAttribute("Name", "textelement_" + i);
-// // r.appendChild(y);
-// // g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-// // r.appendChild(g);
-// // r.setAttribute("id", "id_" + i);
-// // document.getElementById("myForm").appendChild(r);
-// // }
-// // /*
