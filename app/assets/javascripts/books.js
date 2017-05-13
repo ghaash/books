@@ -100,7 +100,33 @@ Book.prototype.formatShow = function() {
   return bookshowHTML
 }
 
+Book.prototype.formatForm = function () {
+  let bookformHTML = `
+  <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="u8ZV5pod/iysuzf326lOOKUXHaqKefscK/VZBpfnR9E9x0DEBsgH695dNp7hWY5s13caHbJ7byibsRtleSlosQ==">
 
+  <div class="field">
+    <label for="book_title">Title</label>
+    <input type="text" name="book[title]" id="book_title">
+    <label for="book_author">Author</label>
+    <input type="text" name="book[author]" id="book_author">
+    <label for="book_genre">Genre</label>
+    <input type="text" name="book[genre]" id="book_genre">
+    <label for="book_description">Description</label>
+    <input type="text" name="book[description]" id="book_description">
+    <label for="book_page_length">Page length</label>
+    <input type="text" name="book[page_length]" id="book_page_length">
+
+
+    <label for="book_ratings_attributes_0_stars">Stars</label>
+    <input type="text" name="book[ratings_attributes][0][stars]" id="book_ratings_attributes_0_stars">
+  </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
+  </div>
+</form>
+  `
+}
 
 //
 // //post.prototype.
