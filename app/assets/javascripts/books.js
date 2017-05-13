@@ -27,7 +27,17 @@ booktitleClick()
 //would document.getElementById("#booklink") work here?
 function booktitleClick() {
 $(".booktitle").on("click", function(e){
-  $.get()
+  // e.preventDefault()
+  //     $('#app-container').html('')
+  //     let id = $(this).attr('data-id')
+  //     fetch(`/posts/${id}.json`)
+  //     .then(res => res.json())
+  //     .then(post => {
+  //       let newPost = new Post(post)
+  //
+  //       let postHtml = newPost.formatShow()
+  //
+  //       $('#app-container').append(postHtml)
   var $renderForm = $("#appcontainer ol")
   $renderForm.html(`the book show appears!`) // needs to render a form, js erb? but like ewwwwwwww, no it didn't work not without remote: true
   e.preventDefault();
@@ -63,7 +73,7 @@ Book.prototype.formatShow = function() {
 <h2>${this.author}</h2>
 <h2>${this.genre}</h2>
 <h2>${this.description}</h2>
-<h2>${this.page_length}</h2>
+<h2>${this.page_lengthgit commi}</h2>
 <h2>${this.ratings}</h2>
 `
 }
