@@ -2,6 +2,11 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+//battle plan from meeting with cernan on 05/11/2017
+// add book show via js through the methods he taught, the constructor and the let and this
+// add form with the LET formHTML = the formHTML
+// watch video
+
 $(function(){
   $(".book_index").on("click", function(e){
     $.ajax({
@@ -49,7 +54,27 @@ function Book(book) {
   this.genre = book.genre
   this.description = book.description
   this.page_length = book.page_length
+  this.ratings = book.ratings.stars
 }
+
+Book.prototype.formatShow = function() {
+  let bookshowHTML = `
+<h1>${this.title}</h1>
+<h2>${this.author}</h2>
+<h2>${this.genre}</h2>
+<h2>${this.description}</h2>
+<h2>${this.page_length}</h2>
+<h2>${this.ratings}</h2>
+`
+}
+
+//post.prototype.
+
+// let Form =
+
+// what is const
+
+// try pushstate
 
 //try this
 // */
