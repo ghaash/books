@@ -19,10 +19,14 @@ $(function(){
       method: "GET",
       url: '/books'
     }).success(function(json){
+      //refactor later using not var
+      // let newBook = Book(book)
+      // let bookindexHTML = newBook.formatIndex()
+      // $('#appcontainer ol').append(bookshowHTML)
   var $renderAllBooks = $("#appcontainer ol")
   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
   json.forEach(function(books){
-    $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${books.id}">${books.title}</a></li>`);
+  $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${this.id}" data-id="${this.id}">${books.title}</a></li>`);
 })
 booktitleClick()
 })
@@ -34,6 +38,7 @@ function booktitleClick() {
   $(".booktitle").on("click", function(e) {
     e.preventDefault()
     $('#appcontainer ol').html('')
+    // need a let book = something for it to pass in fetch
     fetch(`/books`)
     .then(res => res.json())
     .then(book => {
@@ -66,6 +71,7 @@ function Book(book) {
   this.genre = book.genre
   this.description = book.description
   this.page_length = book.page_length
+  this.ratings = book.ratings
 }
 
 Book.prototype.formatIndex = function() {
