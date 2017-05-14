@@ -22,11 +22,14 @@ $(function(){
       //refactor later using not var
       // let newBook = Book(book)
       // let bookindexHTML = newBook.formatIndex()
-      // $('#appcontainer ol').append(bookshowHTML)
+      // $('#appcontainer ol').append(bookindexHTML)
   var $renderAllBooks = $("#appcontainer ol")
+  let newBook = new Book(books)
+  let bookindexHTML = newBook.formatIndex()
   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
   json.forEach(function(books){
-  $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${this.id}" data-id="${this.id}">${books.title}</a></li>`);
+    $('#appcontainer ol').append(bookindexHTML)
+  // $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${books.id}" data-id="${books.id}">${books.title}</a></li>`);
 })
 booktitleClick()
 })
@@ -39,7 +42,9 @@ function booktitleClick() {
     e.preventDefault()
     $('#appcontainer ol').html('')
     // need a let book = something for it to pass in fetch
-    fetch(`/books`)
+    // let id = $(this).attr('data-id')
+    // fetch(`/books/${id}.json`)
+    fetch(`/books/`)
     .then(res => res.json())
     .then(book => {
       book.forEach(book => {
@@ -75,7 +80,10 @@ function Book(book) {
 }
 
 Book.prototype.formatIndex = function() {
-  let bookindexHTML = `<h1>hiiii</h1>`
+  let bookindexHTML = `
+  <li class="booktitle" id="booklink">
+  <a href="books/${this.id}" data-id="${this.id}">${this.title}</a>
+  </li>`
 }
 
 Book.prototype.formatShow = function() {
@@ -85,6 +93,7 @@ Book.prototype.formatShow = function() {
   <h2>Genre: ${this.genre}</h2>
   <h2>Description: ${this.description}</h2>
   <h2>Pages: ${this.page_length}</h2>
+  <h2>Ratings: ${this.ratings}</h2>
   `
   return bookshowHTML
 }
