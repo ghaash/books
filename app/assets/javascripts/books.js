@@ -13,61 +13,170 @@
 //add create form
 //add click event to rendetr form button
 
-$(function(){
-  $(".book_index").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: '/books'
-    }).success(function(json){
-      //refactor later using not var
-      // let newBook = Book(book)
-      // let bookindexHTML = newBook.formatIndex()
-      // $('#appcontainer ol').append(bookindexHTML)
-  var $renderAllBooks = $("#appcontainer ol")
-  let newBook = new Book(books)
-  let bookindexHTML = newBook.formatIndex()
-  $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
-  json.forEach(function(books){
-    $('#appcontainer ol').append(bookindexHTML)
-  // $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${books.id}" data-id="${books.id}">${books.title}</a></li>`);
+$(() => {
+  bindClickHandlers()
 })
-booktitleClick()
-})
-    e.preventDefault();
-})
-});
 
-function booktitleClick() {
-  $(".booktitle").on("click", function(e) {
+const bindClickHandlers = () => {
+  $('.book_index').on('click', e => {
     e.preventDefault()
-    $('#appcontainer ol').html('')
-    // need a let book = something for it to pass in fetch
-    // let id = $(this).attr('data-id')
-    // fetch(`/books/${id}.json`)
-    fetch(`/books/`)
+    history.pushState(null, null, "books")
+    getBooks()
+
+  })
+
+  $(document).on('click', ".booktitle", function(e) {
+    e.preventDefault()
+    $('#appcontainer').html('')
+    let id = $(this).attr('data-id')
+    fetch(`/books/${id}.json`)
     .then(res => res.json())
     .then(book => {
-      book.forEach(book => {
       let newBook = new Book(book)
-      let bookshowHTML = newBook.formatShow()
-      $('#appcontainer ol').append(bookshowHTML)
-    })
-  })
-})
-};
 
-$(function(){
-  $("a.book_create").on("click", function(e){
-    $.ajax({
-      method: "GET",
-      url: "/books/new"
-    }).success(function(data){
-      var $renderCreateBook = $("#appcontainer ol")
-      $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+      let bookHtml = newBook.formatShow()
+
+      $('#appcontainer').append(bookHtml)
     })
-    e.preventDefault();
   })
-});
+
+  $(document).on('click', 'next-book', function() {
+    let id = $(this).attr('data-id')
+    fetch(`books/${id}/next`)
+  })
+}
+
+// $(document).on('submit', '.new_book', function() {
+//   $.ajax({
+//     type: this.method,
+//     url: this.action,
+//     data: $(this).serialize();,
+//     success: function(respone){
+//       $("#book_title", "#book_author", "#book_genre", "#book_description", "#book_page_length", "#book_ratings_attributes_0_stars").val("");
+//       var $ol = $("appcontainer ol")
+//       $ol.append(response);
+//     }
+//   })
+// })
+
+// $(function(){
+//   $(".new_book").on("submit", function(e){
+//     $.ajax({
+//       type: this.method,
+//       url: this.action,
+//       data: $(this).serialize();, // either JSON or querystring serializing
+//       success: function(response){
+//         $("#book_title", "#book_author", "#book_genre", "#book_description", "#book_page_length", "#book_ratings_attributes_0_stars").val("");
+//         var $ol = $("appcontainer ol")
+//         $ol.append(response);
+//       }
+//     });
+//     e.preventDefault();
+//   })
+// });
+
+const getBooks = () => {
+  fetch(`/books.json`)
+    .then(res => res.json())
+    .then(books => {
+       $('#appcontainer').html('')
+       books.forEach(book => {
+         let newBook = new Book(book)
+
+         let bookHtml = newBook.formatIndex()
+
+         $('#appcontainer').append(bookHtml)
+       })
+    })
+}
+
+// // $(function(){
+// //   $(".book_index").on("click", function(e){
+// //     $.ajax({
+// //       method: "GET",
+// //       url: '/books'
+// //     }).success(function(json){
+// //       //refactor later using not var
+// //       // let newBook = Book(book)
+// //       // let bookindexHTML = newBook.formatIndex()
+// //       // $('#appcontainer ol').append(bookindexHTML)
+// //   var $renderAllBooks = $("#appcontainer ol")
+// //   $renderAllBooks.html(`<li><strong>Your Book Shelf</strong></li>`)
+// //   json.forEach(function(books){
+// //     // let newBook = new Book(books)
+// //     // let bookindexHTML = newBook.formatIndex()
+// //     // $('#appcontainer ol').append(bookindexHTML)
+// //   $renderAllBooks.append(`<li class="booktitle" id="booklink"><a href="books/${books.id}" data-id="${books.id}">${books.title}</a></li>`);
+// // })
+// // booktitleClick()
+// // })
+// //     e.preventDefault();
+// // })
+// // });
+//
+// $(function(){
+//   $(".book_index").on("click", function(e){
+//     e.preventDefault()
+//     fetch(`/books`)
+//     .then(res => res.json())
+//     then(book = {
+//       book.forEach(book => {
+//         let newBook = new Book(book)
+//         let bookindexHTML = newBook.formatIndex()
+//           $(`#appcontainer ol`).append(bookindexHTML)
+//       })
+//     })
+//   })
+// })
+//
+// // function booktitleClick() {
+//   // $(".booktitle").on("click", function(e) {
+//   $(document).on("click", ".booktitle", function(e){
+//     e.preventDefault()
+//     $('#appcontainer ol').html('')
+//     // need a let book = something for it to pass in fetch
+//     // let id = $(this).attr('data-id')
+//     // fetch(`/books/${id}.json`)
+//     fetch(`/books`)
+//     .then(res => res.json())
+//     .then(book => {
+//       book.forEach(book => {
+//       let newBook = new Book(book)
+//       let bookshowHTML = newBook.formatShow()
+//       $('#appcontainer ol').append(bookshowHTML)
+//     })
+//   })
+// })
+// };
+//
+// $(function(){
+//   $("a.book_create").on("click", function(e){
+//     $.ajax({
+//       method: "GET",
+//       url: "/books/new"
+//     }).success(function(data){
+//       var $renderCreateBook = $("#appcontainer ol")
+//       $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+//     })
+//     e.preventDefault();
+//   })
+// });
+
+// $(function(){
+//   $(".new_book").on("submit", function(e){
+//     $.ajax({
+//       type: this.method,
+//       url: this.action,
+//       data: $(this).serialize();, // either JSON or querystring serializing
+//       success: function(response){
+//         $("#book_title", "#book_author", "#book_genre", "#book_description", "#book_page_length", "#book_ratings_attributes_0_stars").val("");
+//         var $ol = $("appcontainer ol")
+//         $ol.append(response);
+//       }
+//     });
+//     e.preventDefault();
+//   })
+// });
 
 function Book(book) {
   this.id = book.id
@@ -80,23 +189,27 @@ function Book(book) {
 }
 
 Book.prototype.formatIndex = function() {
-  let bookindexHTML = `
-  <li class="booktitle" id="booklink">
-  <a href="books/${this.id}" data-id="${this.id}">${this.title}</a>
+  let bookHtml = `
+  <li>
+  <a href="books/${this.id}" data-id="${this.id}"  class="booktitle">${this.title}</a>
   </li>`
+  return bookHtml
 }
 
 Book.prototype.formatShow = function() {
-  let bookshowHTML = `
-  <h1>Title: ${this.title}</h1>
-  <h2>Author: ${this.author}</h2>
-  <h2>Genre: ${this.genre}</h2>
-  <h2>Description: ${this.description}</h2>
-  <h2>Pages: ${this.page_length}</h2>
-  <h2>Ratings: ${this.ratings}</h2>
+  let bookHtml = `
+  <li><strong><h1>Your Book Shelf</h1></strong></li>
+  <h2>Title: ${this.title}</h2>
+  <h3>Author: ${this.author}</h3>
+  <h3>Genre: ${this.genre}</h3>
+  <h3>Description: ${this.description}</h3>
+  <h3>Pages: ${this.page_length}</h3>
+  <h3>Ratings: ${this.ratings}</h3>
   `
-  return bookshowHTML
+  return bookHtml
 }
+
+// <button class="next-book">Next</button>
 
 Book.prototype.formatForm = function () {
   let bookformHTML = `

@@ -13,6 +13,7 @@ end
 # @rating = @book.ratings.build
     @ratings = @book.ratings
     @rating =  @book.ratings.build
+    render json: @book
   end
 
   def new
