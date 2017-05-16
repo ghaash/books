@@ -46,18 +46,29 @@ const bindClickHandlers = () => {
   })
 }
 
-// $(document).on('submit', '.new_book', function() {
-//   $.ajax({
-//     type: this.method,
-//     url: this.action,
-//     data: $(this).serialize();,
-//     success: function(respone){
-//       $("#book_title", "#book_author", "#book_genre", "#book_description", "#book_page_length", "#book_ratings_attributes_0_stars").val("");
-//       var $ol = $("appcontainer ol")
-//       $ol.append(response);
-//     }
-//   })
-// })
+  // $(document).on('click', '.new_book', function(e){
+  //   e.preventDefault()
+  //   alert("Hiiiiii")
+  //   // add fetch?
+  // })
+
+$(document).on('submit', '.new_book', function(e) {
+   e.preventDefault()
+  $.ajax({
+    type: this.method,
+    url: this.action,
+    data: $(this).serialize(),
+    success: function(response){
+
+      //       var $renderCreateBook = $("#appcontainer ol")
+      //       $renderCreateBook.html(`<h1>a wild form appears</h1>`)
+
+      // $("#book_title").val("");
+      var $renderForm = $("#appcontainer ol")
+      $renderForm.append(response);
+    }
+  })
+})
 
 // $(function(){
 //   $(".new_book").on("submit", function(e){
