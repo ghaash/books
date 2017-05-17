@@ -13,16 +13,20 @@
 //add create form
 //add click event to rendetr form button
 
+//ask cernan 3 things
+// 1 why does adding functions stop e.preventDefault lines 46-50, was missing a }! lol
+// 2 why does this.ratings not work? why object object, its the default conversion from object to string but... i need the data, line 191
+// 3 how do I append my new_book? response reads as null 60-62
+
 $(function() {
-  bindClickHandlers()
+  OnClick()
 })
 
-const bindClickHandlers = function() {
+const OnClick = function() {
   $('.book_index').on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "books")
     getBooks()
-
   })
 
   $(document).on('click', ".booktitle", function(e) {
@@ -30,20 +34,13 @@ const bindClickHandlers = function() {
     $('#appcontainer').html('')
     let id = $(this).attr('data-id')
     fetch(`/books/${id}.json`)
-    debugger
     .then(function(response) { return response.json(); })
-    debugger
     .then(function(book) {
-      debugger
       let newBook = new Book(book)
+      console.log(newBook)
       let bookHtml = newBook.formatShow()
       $('#appcontainer').append(bookHtml)
     })
-  })
-
-  $(document).on('click', 'next-book', function() {
-    let id = $(this).attr('data-id')
-    fetch(`books/${id}/next`)
   })
 }
 
@@ -53,10 +50,16 @@ $(document).on('submit', '.new_book', function(e) {
     type: this.method,
     url: this.action,
     data: $(this).serialize(),
-    success: function(response){
-      $("#book_title").val("");
-      var $renderForm = $("#appcontainer ol")
-      $renderForm.append(response);
+    success: function(book){
+      $('#appcontainer').html('')
+      let newBook = new Book(book)
+      console.log(newBook)
+      let bookHtml = newBook.formatShow()
+      $('#appcontainer').append(bookHtml)
+      // console.log(response)
+      // $("#book_title").val("");
+      // var $renderForm = $("#appcontainer")
+      // $renderForm.append(response);
     }
   })
 })
@@ -197,6 +200,12 @@ Book.prototype.formatIndex = function() {
 }
 
 Book.prototype.formatShow = function() {
+  const stars = this.ratings.map(function(rating){ //[{stars}, {stars}]
+    return rating.stars //[5, null]
+  }).filter(function(star){
+    return star !== null //[5]
+  })
+  console.log(stars)
   let bookHtml = `
   <li><strong><h1>Your Book Shelf</h1></strong></li>
   <h2>Title: ${this.title}</h2>
@@ -204,7 +213,7 @@ Book.prototype.formatShow = function() {
   <h3>Genre: ${this.genre}</h3>
   <h3>Description: ${this.description}</h3>
   <h3>Pages: ${this.page_length}</h3>
-  <h3>Ratings: ${this.ratings}</h3>
+  <h3>Ratings: ${stars}</h3>
   `
   return bookHtml
 }

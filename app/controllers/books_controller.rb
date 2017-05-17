@@ -12,6 +12,7 @@ end
 #     # binding.pry
 # @rating = @book.ratings.build
     @rating =  @book.ratings.build
+    # ^^ this is null and added into json, hence 2 results. if @rating
     render json: @book
   end
 
@@ -26,16 +27,17 @@ end
 
   def create
     @book = Book.new(book_params)
-    # render json: @books
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
+    # render json: @book
 
-      else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+      if @book.save
+        render json: @book
+    #     format.html { redirect_to @book, notice: 'Book was successfully created.' }
+    #     format.json { render :show, status: :created, location: @book }
+    #
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @book.errors, status: :unprocessable_entity }
+    #   end
     end
   end
 
