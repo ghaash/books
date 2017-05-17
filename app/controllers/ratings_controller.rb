@@ -11,15 +11,15 @@ class RatingsController < ApplicationController
     end
     # @ratings = Rating.all || @book.ratings
     # @ratings = @book.ratings
-    render :json => @ratings
+    render json: @ratings
 end
 
   def show
-
+render json: @rating
   end
 
   def new
-    # @rating = Rating.new
+    @rating = Rating.new
   end
 
   def edit
@@ -32,14 +32,14 @@ end
 
     # respond_to do |format|
       if @rating.save
-        render json: @ratings
+        # render json: @ratings
 
-  #       format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
-  #       format.json { render :show, status: :created, location: @rating }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @rating.errors, status: :unprocessable_entity }
-  #     end
+        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
+        format.json { render :show, status: :created, location: @rating }
+      else
+        format.html { render :new }
+        format.json { render json: @rating.errors, status: :unprocessable_entity }
+      end
     end
   end
 

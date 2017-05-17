@@ -13,12 +13,12 @@
 //add create form
 //add click event to rendetr form button
 
-$(() => {
+$(function() {
   bindClickHandlers()
 })
 
-const bindClickHandlers = () => {
-  $('.book_index').on('click', e => {
+const bindClickHandlers = function() {
+  $('.book_index').on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "books")
     getBooks()
@@ -30,12 +30,13 @@ const bindClickHandlers = () => {
     $('#appcontainer').html('')
     let id = $(this).attr('data-id')
     fetch(`/books/${id}.json`)
-    .then(res => res.json())
-    .then(book => {
+    debugger
+    .then(function(response) { return response.json(); })
+    debugger
+    .then(function(book) {
+      debugger
       let newBook = new Book(book)
-
       let bookHtml = newBook.formatShow()
-
       $('#appcontainer').append(bookHtml)
     })
   })
@@ -46,12 +47,6 @@ const bindClickHandlers = () => {
   })
 }
 
-  // $(document).on('click', '.new_book', function(e){
-  //   e.preventDefault()
-  //   alert("Hiiiiii")
-  //   // add fetch?
-  // })
-
 $(document).on('submit', '.new_book', function(e) {
    e.preventDefault()
   $.ajax({
@@ -59,11 +54,7 @@ $(document).on('submit', '.new_book', function(e) {
     url: this.action,
     data: $(this).serialize(),
     success: function(response){
-
-      //       var $renderCreateBook = $("#appcontainer ol")
-      //       $renderCreateBook.html(`<h1>a wild form appears</h1>`)
-
-      // $("#book_title").val("");
+      $("#book_title").val("");
       var $renderForm = $("#appcontainer ol")
       $renderForm.append(response);
     }
@@ -86,16 +77,14 @@ $(document).on('submit', '.new_book', function(e) {
 //   })
 // });
 
-const getBooks = () => {
+const getBooks = function() {
   fetch(`/books.json`)
-    .then(res => res.json())
-    .then(books => {
+    .then(function(response) { return response.json(); })
+    .then(function(books) {
        $('#appcontainer').html('')
-       books.forEach(book => {
+       books.forEach(function(book) {
          let newBook = new Book(book)
-
          let bookHtml = newBook.formatIndex()
-
          $('#appcontainer').append(bookHtml)
        })
     })
